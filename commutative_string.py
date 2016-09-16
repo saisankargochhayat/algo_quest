@@ -1,20 +1,5 @@
-# a=[1,2,3,4,5,6,7,8,8,9]
-# b=[1,2,3,4,5,6,7,8,8,9]
-# if a==b:
-#     print("hello")
-# else:
-#     print("not equal")
-
-# n=int(input())
-# for i in range(n):
-#     x=int(input())
-#     if x==1:
-#         print("Yes")
-#     elif x%2==0:
-#         print("Yes")
-#     else:
-#         print("No")
-
+#https://www.hackerrank.com/contests/w23/challenges/commuting-strings
+#function to find smallest repeating pattern in string
 def pattern(inputv):
     if not inputv:
         return inputv
@@ -37,4 +22,9 @@ def pattern(inputv):
         return inputv
 
     return inputv[0:smallPieceLen]
-print(pattern("bcbdbcbcbdbc"))
+count=0
+word=input()
+m=int(input())
+new=pattern(word)
+count=m/len(new)
+print(int(count))
