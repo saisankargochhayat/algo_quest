@@ -1,11 +1,10 @@
 import random
-n = random.randrange(1,30)
-l = random.randrange(1,20)
-a = random.randrange(1,100)
-b = random.randrange(a+n*l,10000)
-print(1)
-print(str(n)+" "+str(l)+" "+str(a)+" "+str(b))
-snakes = []
-for i in range(n):
-    snakes.append(random.randrange(1,1000))
-print(' '.join(str(x) for x in snakes))
+n = random.randrange(1,100000,1)
+k = random.randrange(1,1000000,1)
+m = random.randrange(1,1000,1)
+print(str(n)+" "+str(k)+" "+str(m))
+for i in range(k):
+    x = random.randrange(1,n,1)
+    y = random.randrange(1,n,1)
+    print(str(x) + " "+str(y))
+print(" ".join([str(random.randrange(1,n,1)) for j in range(m)]))
