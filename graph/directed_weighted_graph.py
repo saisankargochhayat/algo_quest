@@ -10,6 +10,7 @@ class graph:
             self.vertices[myid] = set()
     def add_edge(self,id1,id2,weight):
         self.vertices[id1].add((id2,weight))
+        self.vertices[id2].add((id1,weight))
     def show_graph(self):
         for key in self.vertices:
             print(str(key)+" : " + str(self.vertices[key]))
