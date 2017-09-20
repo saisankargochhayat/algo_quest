@@ -1,12 +1,10 @@
-import sys
-
-limit = 1000000007
-
-def towerColoring(n):
-    return (3**(3**n))%limit
-
-
-
-n = int(input().strip())
-result = towerColoring(n)
-print(result)
+def solution(A, B):
+    A.sort()
+    B.sort()
+    for a in A:
+        if a in B:
+            return a
+    return -1
+A = list(map(int,input().split(' ')))
+B = list(map(int,input().split(' ')))
+print(solution(A,B))
