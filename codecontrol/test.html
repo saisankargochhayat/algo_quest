@@ -1,0 +1,60 @@
+<!DOCTYPE html>\n
+<html>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+
+<head>
+    <title>Codility test</title>
+</head>
+
+<body>\n\n
+    <ul>\n
+        <li>Item:\n
+            <ol>\n
+                <li>Point:\n
+                    <div>\n
+                        <ul>\n
+                            <li>elem1</li>\n </ul>\n </div>\n </li>\n </ol>\n </li>\n
+        <li>elem2</li>\n</ul>\n
+    <ul>\n
+        <li>simple list1</li>\n</ul>\n
+    <ul>\n</ul>\n</body>
+
+<script>
+    function solution() {
+        let ols = $('ol')
+        let uls = $('ul')
+        console.log(ols)
+        let depth = 0;
+        for (let i = 0; i < ols.length; i++) {
+            let parents = $(ols[i]).parents();
+            console.log(parents)
+            let currdepth = 1
+            for (let j = 0; j < parents.length; j++) {
+                if (parents[j].tagName == 'OL' || parents[j].tagName == 'UL') {
+                    currdepth += 1
+                }
+            }
+            if (depth < currdepth) {
+                depth = currdepth;
+            }
+        }
+        for (let i = 0; i < uls.length; i++) {
+            let parents = $(uls[i]).parents();
+            let currdepth = 1
+            for (let j = 0; j < parents.length; j++) {
+                if (parents[j].tagName == 'OL' || parents[j].tagName == 'UL') {
+                    currdepth += 1
+                }
+            }
+            if (depth < currdepth) {
+                depth = currdepth;
+            }
+        }
+        console.log(depth);
+        return depth;
+    }
+    solution()
+</script>
+
+</html>
