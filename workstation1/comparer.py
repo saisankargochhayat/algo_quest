@@ -1,3 +1,4 @@
+import sys
 # Ask the user to enter the names of files to compare
 fname1 = "output.txt"
 fname2 = "naive_output.txt"
@@ -7,9 +8,9 @@ f1 = open(fname1)
 f2 = open(fname2)
 
 # Print confirmation
-print("-----------------------------------")
-print("Comparing files ", " > " + fname1, " < " +fname2, sep='\n')
-print("-----------------------------------")
+# print("-----------------------------------")
+# print("Comparing files ", " > " + fname1, " < " +fname2, sep='\n')
+# print("-----------------------------------")
 
 # Read the first line from the files
 f1_line = f1.readline()
@@ -17,7 +18,7 @@ f2_line = f2.readline()
 
 # Initialize counter for line number
 line_no = 1
-
+isSame = True
 # Loop if either file1 or file2 has not reached EOF
 while f1_line != '' or f2_line != '':
 
@@ -30,17 +31,21 @@ while f1_line != '' or f2_line != '':
 
         # If a line does not exist on file2 then mark the output with + sign
         if f2_line == '' and f1_line != '':
-            print(">+", "Line-%d" % line_no, f1_line)
+            # print(">+", "Line-%d" % line_no, f1_line)
+            isSame = False
         # otherwise output the line on file1 and mark it with > sign
         elif f1_line != '':
-            print(">", "Line-%d" % line_no, f1_line)
+            # print(">", "Line-%d" % line_no, f1_line)
+            isSame = False
 
         # If a line does not exist on file1 then mark the output with + sign
         if f1_line == '' and f2_line != '':
-            print("<+", "Line-%d" % line_no, f2_line)
+            # print("<+", "Line-%d" % line_no, f2_line)
+            isSame = False
         # otherwise output the line on file2 and mark it with < sign
         elif f2_line != '':
-            print("<", "Line-%d" %  line_no, f2_line)
+            # print("<", "Line-%d" %  line_no, f2_line)
+            isSame = False
 
         # Print a blank line
         print()
@@ -52,7 +57,12 @@ while f1_line != '' or f2_line != '':
 
     #Increment line counter
     line_no += 1
-
+if isSame:
+    print("Success");
+    sys.exit(1)
+else:
+    print("Failed");
+    sys.exit(0)
 # Close the files
 f1.close()
 f2.close()
