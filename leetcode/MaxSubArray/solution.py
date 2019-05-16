@@ -35,7 +35,20 @@ class Solution:
         return (max_left, max_right, left_sum+right_sum)
         
     def maxSubArray(self, nums: List[int]) -> int:
+        # bestSum = min(nums)
+        # tailSum = 0
+        
+        # for n in nums:
+        #     tailSum += n
+        #     bestSum = max(tailSum, bestSum)
+        #     tailSum = max(tailSum, 0)
+                
+        # return bestSum
+
+        # divide and conquer soln below
         max_left, max_right, max_sum = self.find_max_subarray(nums, 0, len(nums)-1)
         #print(max_left, max_right)
         return max_sum
     
+
+        
