@@ -1,0 +1,12 @@
+#code
+#https://www.geeksforgeeks.org/count-number-binary-strings-without-consecutive-1s/
+def Solution(num:int) -> int:
+    a, b = 1, 1
+    for i in range(num-1):
+        a,b = a+b, a
+    return a+b
+
+n = int(input())
+for i in range(n):
+    num = int(input())
+    print(Solution(num)%1000000007)
