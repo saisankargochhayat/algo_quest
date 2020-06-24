@@ -2,15 +2,15 @@
 class UnionFind:
     def __init__(self, N):
         # Stores the set it belongs to.
-        self.arr = [i for i in range(N)]
+        self.parent = [i for i in range(N)]
         # Stores the size of set, needed for weighted union.
         self.size = [1 for i in range(N)]
 
     def _root(self, i):
         # The idea is to set the root of i to its grandparent, hence compressing the path.
-        while self.arr[i] != i:
-            self.arr[i] = self.arr[self.arr[i]]
-            i = self.arr[i]
+        while self.parent[i] != i:
+            self.parent[i] = self.parent[self.parent[i]]
+            i = self.parent[i]
         return i
 
     def find(self, x):
@@ -25,11 +25,11 @@ class UnionFind:
         # this the weighted union step.
         if self.size[x_root] < self.size[y_root]:
             # add x to y tree.
-            self.arr[x_root] = self.arr[y_root]
+            self.parent[x_root] = self.parent[y_root]
             self.size[y_root] += self.size[x_root]
         else:
             # add y to x tree.
-            self.arr[y_root] = self.arr[x_root]
+            self.parent[y_root] = self.parent[x_root]
             self.size[x_root] += self.size[y_root]
 
 u = UnionFind(10)
