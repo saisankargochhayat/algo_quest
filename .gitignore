@@ -1,3 +1,5 @@
 input.txt
 .vscode/
+.idea/
 .out
+venv/
