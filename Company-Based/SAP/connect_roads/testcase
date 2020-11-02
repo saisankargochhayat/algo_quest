@@ -1,0 +1,25 @@
+Yes, I found below test-cases.
+Test Case 1: -
+2
+2
+$#
+$.
+Expected: - 2
+Test Case 2: -
+4
+4
+$ . . #
+. . # .
+
+. $ .
+. . . .
+Expected: - 24
+Test Case 3: -
+4
+4
+$ . . #
+. . # .
+
+. $ .
+$ . . .
+Expected: - 24

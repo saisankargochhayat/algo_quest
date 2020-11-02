@@ -1,0 +1,144 @@
+User API for a Web Application
+
+Base URL - https://api.sai-example.com/
+
+a) API endpoints for each functionality. 
+
+1) Create a new user on Signup with a unique user id which will be the primary key. This user-id should not be their email or any other personal details.
+
+    POST /user
+
+    Body - {
+
+                   "first_name": "John",
+
+                   "last_name": "Wick",
+
+                   "email_id": "john@sap.com",
+
+                   "phone": "+18572323134",
+
+                   "location": "Boston"
+
+              }
+
+      Response - 
+
+       200 - {"user_id": "asdsadsadasdasdasdsadasdasd", "creation": "success"}
+
+       400 - Invalid Input  # user already exists
+
+2) Delete a specific user.
+
+    DELETE /user/{userID}  # authenticated route
+
+    Header - {"api_key": "asdsaaaaaaaaaaadsadsadsdsadsadsaasdsa"}
+
+    Response - 
+
+    200 -   {"deletion": "success"}
+
+    404  - User not found
+
+    400 - Invalid Input
+
+3) Update the email-id of the user.
+
+    PUT /user/{userID}/
+
+    Header - {"api_key": "asdsaaaaaaaaaaadsadsadsdsadsadsaasdsa"}    # User authenticated oauth key
+
+    Body - {"email_id": "john_wick@sap.com"}
+
+    Response - 
+
+    200 -  {"updated": "success"}
+
+    404  - User not found
+
+    400 - Invalid Input
+
+4) Get information of a specific user using their unique user id.
+
+    GET /user/{userID}
+
+    Header - {"api_key": "asdsaaaaaaaaaaadsadsadsdsadsadsaasdsa"}    # User authenticated oauth key
+
+    Response - 
+
+    200 - Body - {
+
+                   "first_name": "John",
+
+                   "last_name": "Wick",
+
+                   "email_id": "john@sap.com",
+
+                   "phone": "+18572323134",
+
+                   "location": "Boston"
+
+              }
+
+      404  - User not found
+
+      400 - Invalid Input     
+
+5) Get all the users living in San Francisco.
+
+    GET /users/?location="San Francisco" 
+
+    Header -  {"api_key": "asdsaaaaaaaaaaadsadsadsdsadsadsaasdsa"}    # Admin key
+
+    Response - 
+
+    200 -  [userID1, userID2, ..............] //List of user ids located in san francisco
+
+    400 - Invalid Input 
+
+6) Update the password of a specific user using their unique user id.
+
+    PUT /user/{userID}/
+
+    Header -  {"api_key": "asdsaaaaaaaaaaadsadsadsdsadsadsaasdsa"}    # User authenticated oauth key
+
+    Body - {"password": "SecurePassword"}
+
+    Response - 
+
+    200 {"updated": "Success"}
+
+    400 Invalid Input
+
+    404 User doesn't exist
+
+7) Get all users that have logged in at least once since this week.
+
+    GET /user/?lastlogin="2020-10-17"&login_atleast=1
+
+    Header -  {"api_key": "asdsaaaaaaaaaaadsadsadsdsadsadsaasdsa"}    # Admin key
+
+    Response - 
+
+    200 - Body - {[userID1, userID2, .............]} 
+
+    400 Invalid Input
+
+b) What mechanisms would you put in place to prevent a denial-of-service attack?
+
+Ans) There are couple of steps to preventing a denial of service attack - 
+
+To prevent basic brute force DOS attacks, we could use an HTTP cache layer like Squid, and put a small max-age header on any open endpoint we are concerned about. Having a max age of 1 second would prevent our API from being hit more than once per second.
+
+We could limit the number of requests for each point in a particular time interval, when rate is exceeded we block access for that particular API key for a limited time. (We see this observed in popular API's for example Github API) 
+
+Use external DOS attack protection cloud providers like Cloudflare. 
+
+    
+
+    
+
+    
+
+    
+

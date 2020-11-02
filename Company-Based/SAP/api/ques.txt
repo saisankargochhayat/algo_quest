@@ -1,0 +1,42 @@
+https://leetcode.com/discuss/interview-question/832942/SAP-SVNT-OA-2020-Backend-Rest-API-question
+Question 1:
+
+Build a User Management Functionality for a web application
+
+You must be able to cover the below functionality
+
+Create a new user on Signup with a unique user id which will be the primary key. This user id should not be their email or any other personal details.
+Delete a specific user.
+Update the email-id of the user.
+Get information of a specific user using their unique user id.
+Get all the users living in San Francisco.
+Update the password of a specific user using their unique user id.
+Get all users that have logged in at least once since this week.
+Note: A user would have the following details:
+
+First name
+Last name
+Email id
+Phone number
+Location
+a) Write API endpoints for each of the following functionalities in the given blanks. You are free to use your own naming conventions
+
+For example: GET .../api name?[parametersj
+
+b) What mechanisms would you put in place to prevent a denial-of-service attack?
+
+Question 2:
+
+In the first week of your job, you are asked to build a distributed system to
+execute jobs in a priority sequence. Each job has a unique identifier.
+You must be able to:
+
+Insert a job, according to its associated priority.
+Delete a job, based on its identifier.
+Return the identifier of the highest-priority job waiting to run.
+Return a list of all jobs in the queue, ordered from top priority to least priority.
+Return the number of jobs that are waiting in the queue.
+a) Write the RESTful API endpoint definition of the above functionality.
+For example: GET .../api name?[parameters]
+
+b) How would you ensure data consistency in your system?
