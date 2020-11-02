@@ -1,2 +1,2 @@
 # algo_quest
-Practice problems and commong algorithm problems.
+Practice problems and common algorithm problems.
