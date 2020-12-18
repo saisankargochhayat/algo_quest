@@ -46,6 +46,8 @@ print(largestNonDecreasingNums(998))  # 789
 print(largestNonDecreasingNums(299))  # 289
 print(largestNonDecreasingNums(1000000))
 
+# Strictly increasing number. 
+
 # def increasingNumber(number):
 #     str_num = str(number)
 #     num_list = [int(num) for num in str_num]
