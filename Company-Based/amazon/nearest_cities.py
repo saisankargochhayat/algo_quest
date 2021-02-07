@@ -2,7 +2,7 @@
 from typing import List
 from collections import defaultdict
 def findEuclidean(x1, x2, y1, y2) -> int:
-    return abs(x1-x2) + abs(y1-y2)
+    return (abs(x1-x2)**2) + (abs(y1-y2)**2)
 def findNearestCities(numOfPoints: int, points: List[str], xCoordinates: List[int], yCoordinates: List[int],
                       numOfQueries: int, queries: List[str]) -> List[str]:
     xMap = defaultdict(list)
@@ -37,18 +37,18 @@ def findNearestCities(numOfPoints: int, points: List[str], xCoordinates: List[in
     
 
 
-# n = 3
-# points = ["p1","p2","p3"]
-# xCoordinates = [30, 20, 10]
-# yCoordinates = [30, 20, 30]
-# numOfQueriedPoints = 3
-# queriedPoints = ["p3", "p2", "p1"]
+n = 3
+points = ["p1","p2","p3"]
+xCoordinates = [30, 20, 10]
+yCoordinates = [30, 20, 30]
+numOfQueriedPoints = 3
+queriedPoints = ["p3", "p2", "p1"]
 
-n = 5
-points =  ["p1", "p2","p3", "p4", "p5"]
-xCoordinates = [10, 20, 30, 40, 50] 
-yCoordinates =  [10, 20, 30, 40, 50]
-numOfQueriedPoints = 5  
-queriedPoints = ["p1", "p2", "p3", "p4", "p5"]
+# n = 5
+# points =  ["p1", "p2","p3", "p4", "p5"]
+# xCoordinates = [10, 20, 30, 40, 50] 
+# yCoordinates =  [10, 20, 30, 40, 50]
+# numOfQueriedPoints = 5  
+# queriedPoints = ["p1", "p2", "p3", "p4", "p5"]
 
 print(findNearestCities(n, points, xCoordinates, yCoordinates, numOfQueriedPoints, queriedPoints))
